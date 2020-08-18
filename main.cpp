@@ -28,7 +28,11 @@ int main()
    {
       std::cin.clear();
       std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+#ifdef _WIN32
       system("cls");
+#elif __linux__
+      system("clear");
+#endif
    };
 
    // Choose calculator mode
@@ -98,6 +102,5 @@ int main()
    }
    while (d == 'y');
 
-   system("pause");
    return 0;
 }
