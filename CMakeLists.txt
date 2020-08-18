@@ -29,16 +29,16 @@ target_link_libraries (${PROJECT} ${CMAKE_THREAD_LIBS_INIT} ${LIB})
 
 #------------------------------------------------------------------
 
-#set (TESTS_SOURCES test/calculator_tests.cpp)
-#
-#set (TEST test_${PROJECT})
-#add_executable (${TEST} ${TESTS_SOURCES})
-#
-#find_package (Boost COMPONENTS unit_test_framework REQUIRED)
-#if(Boost_FOUND)
-#   include_directories(${Boost_INCLUDE_DIRS})
-#   target_link_libraries (${TEST} ${Boost_LIBRARIES} ${LIB})
-#endif()
-#
-#enable_testing ()
-#add_test (${TEST} ${TEST})
+set (TESTS_SOURCES test/calculator_tests.cpp)
+
+set (TEST test_${PROJECT})
+add_executable (${TEST} ${TESTS_SOURCES})
+
+find_package (Boost COMPONENTS unit_test_framework REQUIRED)
+if(Boost_FOUND)
+   include_directories(${Boost_INCLUDE_DIRS})
+   target_link_libraries (${TEST} ${Boost_LIBRARIES} ${LIB})
+endif()
+
+enable_testing ()
+add_test (${TEST} ${TEST})
